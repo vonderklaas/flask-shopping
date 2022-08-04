@@ -6,6 +6,31 @@
 
 {% block content %} 
     <div class='container'>
-        <h1>Register</h1>
+        <div class="text-center">
+            <h1>Register</h1>
+            <img width="300" height="150" class="mb-4 mt-4" src='https://twilio-cms-prod.s3.amazonaws.com/original_images/flask-oauth.png' alt='Flask Market'>
+        </div>
+        <form class="form-register w-50 m-auto" method='POST'>
+            <div class="mb-3">
+                {{ form.username.label() }}
+                {{ form.username(class="form-control", placeholder="Enter an username") }}
+            </div>
+            <div class="mb-3">
+                {{ form.email.label() }}
+                {{ form.email(class="form-control", placeholder="Enter an email") }}
+            </div>
+            <div class="mb-3">
+                {{ form.password1.label() }}
+                {{ form.password1(class="form-control", placeholder="Enter an password") }}
+            </div>
+            <div>
+                {{ form.password2.label() }}
+                {{ form.password2(class="form-control", placeholder="Confirm your password") }}    
+            </div>
+            <br>
+            <div>
+                {{ form.submit.label(class="btn btn-lg btn-block btn-primary") }}   
+            </div>
+        </form>
     </div>
 {% endblock %}
