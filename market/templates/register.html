@@ -11,6 +11,8 @@
             <img width="300" height="150" class="mb-4 mt-4" src='https://twilio-cms-prod.s3.amazonaws.com/original_images/flask-oauth.png' alt='Flask Market'>
         </div>
         <form class="form-register w-50 m-auto" method='POST'>
+            <!-- Prevent from attack -->
+            {{ form.hidden_tag() }}
             <div class="mb-3">
                 {{ form.username.label() }}
                 {{ form.username(class="form-control", placeholder="Enter an username") }}
@@ -23,13 +25,12 @@
                 {{ form.password1.label() }}
                 {{ form.password1(class="form-control", placeholder="Enter an password") }}
             </div>
-            <div>
+            <div class="mb-3">
                 {{ form.password2.label() }}
                 {{ form.password2(class="form-control", placeholder="Confirm your password") }}    
             </div>
-            <br>
-            <div>
-                {{ form.submit.label(class="btn btn-lg btn-block btn-primary") }}   
+            <div class="mb-3">
+                {{ form.submit(class="form-control btn-block btn btn-primary") }}
             </div>
         </form>
     </div>
