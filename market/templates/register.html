@@ -1,41 +1,39 @@
-{% extends 'base.html' %} 
-
+{% extends 'base.html' %}
 {% block title %}
-    Register 
+    Register Page
 {% endblock %}
 
-{% block content %} 
-    <div class='container'>
-        <div class="text-center">
-            <h1>Register</h1>
-            <img width="300" height="150" class="mb-4 mt-4" src='https://twilio-cms-prod.s3.amazonaws.com/original_images/flask-oauth.png' alt='Flask Market'>
-        </div>
-        <form class="form-register w-50 m-auto" method='POST'>
-            <!-- Prevent Form from attack -->
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
             {{ form.hidden_tag() }}
-            <div class="mb-3">
-                {{ form.username.label() }}
-                {{ form.username(class="form-control", placeholder="Enter an username") }}
-            </div>
-            <div class="mb-3">
-                {{ form.email.label() }}
-                {{ form.email(class="form-control", placeholder="Enter an email") }}
-            </div>
-            <div class="mb-3">
-                {{ form.password1.label() }}
-                {{ form.password1(class="form-control", placeholder="Enter an password") }}
-            </div>
-            <div class="mb-3">
-                {{ form.password2.label() }}
-                {{ form.password2(class="form-control", placeholder="Confirm your password") }}    
-            </div>
+            <h1 class="h3 mb-3 font-weight-normal">
+                Please Create your Account
+            </h1>
+            <br>
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User Name") }}
+
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="Email Address") }}
+
+            {{ form.password1.label() }}
+            {{ form.password1(class="form-control", placeholder="Password") }}
+
+            {{ form.password2.label() }}
+            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+
+            <br>
+
             <div class="checkbox mb-3">
-                <h6>Already have an account?</h6>
-                <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
-             </div>
-            <div class="mb-3">
-                {{ form.submit(class="form-control btn-block btn btn-primary") }}
+               <h6>Already have an account?</h6>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Login</a>
             </div>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
         </form>
     </div>
+</body>
 {% endblock %}
