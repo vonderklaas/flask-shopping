@@ -53,6 +53,20 @@
       </div>
     </nav>
     <br>
+    <!-- Flash Validation Warnings -->
+    <div class="w-50 m-auto">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                        <strong>Oops! </strong>
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <br>
     {% block content %} {% endblock %}
   </body>
 </html>
